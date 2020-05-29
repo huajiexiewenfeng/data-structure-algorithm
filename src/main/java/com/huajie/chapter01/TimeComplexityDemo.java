@@ -1,7 +1,7 @@
 package com.huajie.chapter01;
 
 /**
- * 时间复杂度分析示例
+ * 复杂度分析示例
  */
 public class TimeComplexityDemo {
 
@@ -80,6 +80,7 @@ public class TimeComplexityDemo {
     }
 
     /**
+     * O(m+n)
      *
      * @param m
      * @param n
@@ -96,6 +97,21 @@ public class TimeComplexityDemo {
             sum = sum + i;
         }
 
+        return sum;
+    }
+
+    /**
+     * 空间复杂度
+     *
+     * @param n
+     * @return
+     */
+    public static int[] calSpace(int n) {
+        int[] sum = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            sum[i] = i;
+        }
         return sum;
     }
 
