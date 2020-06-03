@@ -25,6 +25,7 @@ public class BlockingDemo {
 
     public void addData(String data) throws InterruptedException {
         ab.add(data);
+        System.out.println("send:" + data);
         Thread.sleep(1000);
     }
 

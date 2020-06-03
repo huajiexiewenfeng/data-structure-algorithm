@@ -29,7 +29,7 @@ public class CycleArrayQueueDemo {
             System.err.println("第二次出队元素："+item);
             System.err.println(arrayQueue.toString());
         }
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 5; i++) {
             arrayQueue.enqueue("第三次入队元素" + i);
             System.err.println(arrayQueue.toString());
         }
