@@ -1,5 +1,6 @@
 package com.huajie.chapter03;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,5 +16,6 @@ public class LinkedListDemo {
         list.add("B");
         list.add("C");
         list.add("D");
+        System.out.println(Arrays.toString(list.toArray()));
     }
 }
