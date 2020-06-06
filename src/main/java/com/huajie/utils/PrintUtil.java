@@ -1,6 +1,5 @@
 package com.huajie.utils;
 
-import com.huajie.chapter05.LinkedListQueue;
 
 /**
  * 打印输出工具类
