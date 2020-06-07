@@ -1,5 +1,8 @@
 package com.huajie.chapter06;
 
+/**
+ * n 阶楼梯问题
+ */
 public class StepsRecursionDemo {
     public static void main(String[] args) {
         int n = 10;
