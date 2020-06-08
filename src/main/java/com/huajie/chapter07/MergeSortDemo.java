@@ -30,6 +30,7 @@ public class MergeSortDemo {
         int[] numbers1 = mergeSort(numbers, p, q);
         int[] numbers2 = mergeSort(numbers, q + 1, r);
         return mergeArray(numbers1, numbers2);
+        // return mergeArray(mergeSort(numbers, p, q), mergeSort(numbers, q + 1, r));
     }
 
     private static int[] mergeArray(int[] numbers1, int[] numbers2) {
