@@ -65,11 +65,4 @@ public class QuickSortDemo {
     }
 
 
-    private static int partitionBetter(int[] numbers, int low, int high) {
-
-
-
-        return low;// 返回当前分区点所在的位置
-    }
-
 }

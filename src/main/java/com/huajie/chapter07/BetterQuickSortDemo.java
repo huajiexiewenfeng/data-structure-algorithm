@@ -3,10 +3,11 @@ package com.huajie.chapter07;
 import java.util.Arrays;
 
 /**
+ * 快速排序示例 空间复杂度 O(1)
  * @Author xwf
  * @Date 2020\6\8 0008 21:04
  */
-public class TmpQuickSortDemo {
+public class BetterQuickSortDemo {
     public static void main(String[] args) {
         int[] numbers = new int[]{7, 3, 10, 1, 4, 2, 8, 6, 5};
         testQuickSort(numbers);
