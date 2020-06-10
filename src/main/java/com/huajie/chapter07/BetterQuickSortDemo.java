@@ -30,6 +30,13 @@ public class BetterQuickSortDemo {
         quickSort(numbers, q + 1, r);
     }
 
+    /**
+     *  pivot 的获取优化方式可以采用 “三数取中法”，从数组头、中、尾获取三个元素，比较取中间数作为 pivot
+     * @param numbers
+     * @param p
+     * @param r
+     * @return
+     */
     private static int partition(int[] numbers, int p, int r) {
         int pivot = numbers[r];// 将数组的最后一个元素作为分区点
         int i = p, j = p;
