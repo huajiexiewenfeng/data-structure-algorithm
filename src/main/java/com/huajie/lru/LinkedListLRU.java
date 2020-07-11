@@ -14,13 +14,18 @@ public class LinkedListLRU {
         LinkedList list = new LinkedList(5);
         Random random = new Random();
         for (int i = 0; i < 20; i++) {
-            int value = random.nextInt(10);
+            int key = random.nextInt(10);
+            Integer value = random.nextInt(10);
             System.out.println("插入值：" + value);
-            list.add(value);
+            list.put(key, value);
+            System.out.println("链表：" + list.toString());
+        }
+        for (int i = 0; i < 10; i++) {
+            int value = random.nextInt(10);
+            System.out.println("获取值>" + value + ":" + list.get(value));
             System.out.println("链表：" + list.toString());
         }
     }
-
 
     static class LinkedList {
         int maxSize;
@@ -31,8 +36,24 @@ public class LinkedListLRU {
             this.maxSize = maxSize;
         }
 
-        void add(int value) {
-            Node node = new Node(value);
+        Integer get(int key) {
+            Node node = contains(key);
+            if (node != null) {
+                Integer index = contains(node);
+                Integer value = node.getVal();
+                if (index == 1) {// 表示和头结点相等
+                    return value;
+                }
+                del(index);
+                addFirst(node);
+                return value;
+            } else {
+                return -1;
+            }
+        }
+
+        void put(Integer key, Integer value) {
+            Node node = new Node(key, value);
             if (first == null) {// 初始化头结点
                 first = node;
                 size++;
@@ -76,7 +97,7 @@ public class LinkedListLRU {
             int index = 1;
             Node tmp = first;
             while (tmp != null) {// 遍历循环查找当前节点的位置
-                if (tmp.getVal() == node.getVal()) {
+                if (tmp.getKey() == node.getKey()) {
                     return index;
                 }
                 tmp = tmp.next;
@@ -85,26 +106,43 @@ public class LinkedListLRU {
             return -1;
         }
 
+        Node contains(int key) {
+            Node tmp = first;
+            while (tmp != null) {// 遍历循环查找当前节点的位置
+                if (tmp.getKey() == key) {
+                    return tmp;
+                }
+                tmp = tmp.next;
+            }
+            return null;
+        }
+
         @Override
         public String toString() {
             String res = "";
             for (Node x = first; x != null; x = x.next) {
-                res += x.getVal() + ",";
+                res += "[" + x.getKey() + ":" + x.getVal() + "],";
             }
             return res.equals("") ? res : res.substring(0, res.length() - 1);
         }
     }
 
     static class Node {
-        int val;
+        Integer key;
+        Integer val;
         Node next;
 
-        public int getVal() {
+        public Integer getVal() {
             return val;
         }
 
-        Node(int x) {
-            val = x;
+        public Integer getKey() {
+            return key;
+        }
+
+        Node(Integer key, Integer value) {
+            this.key = key;
+            this.val = value;
         }
     }
 
