@@ -8,13 +8,14 @@ package com.huajie.chapter10;
  */
 public class FibonacciDemo {
     public static void main(String[] args) {
-        int index = 8;
-        System.out.printf("位置[%d]的斐波纳契数为：[%d]", index, fn(index));
+        int index = 1;
+        System.out.printf("位置[%d]的斐波纳契数为：[%d]\n", index, fn(index));
     }
 
     public static int fn(int number) {
-        if (number == 1) return 0;
-        if (number == 2) return 1;
+        if (number <= 1) {
+            return number;
+        }
         return fn(number - 1) + fn(number - 2);
     }
 }
