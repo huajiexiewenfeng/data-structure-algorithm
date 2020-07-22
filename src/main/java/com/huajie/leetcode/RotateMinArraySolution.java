@@ -45,14 +45,14 @@ public class RotateMinArraySolution {
         return findMinArray(numbers,0,numbers.length - 1);
     }
 
-    static int findMinArray(int[] numbers, int low, int high) {
+    public static int findMinArray(int[] numbers, int low, int high) {
         if (low == high) {
             return numbers[low];
         }
         int mid = low + ((high - low) >> 1);
         if (numbers[mid] < numbers[high]) { // 说明最小值在 low, mid 区间
             return findMinArray(numbers, low, mid);
-        } else if (numbers[mid] > numbers[high]) {// 说明最小值在 mid+1, mid 区间
+        } else if (numbers[mid] > numbers[high]) {// 说明最小值在 mid+1, high 区间
             return findMinArray(numbers, mid + 1, high);
         } else {// 相等说明两个区间都有可能继续递归
             int a = findMinArray(numbers, low, mid);
