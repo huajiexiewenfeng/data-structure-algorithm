@@ -42,27 +42,21 @@ public class RotateMinArraySolution {
      * @return
      */
     public static int minArray2(int[] numbers) {
-        if (numbers.length == 1) {
-            return numbers[0];
-        }
-        int mid = numbers.length >> 1;
-        int a = minArray(numbers, 0, mid - 1);
-        int b = minArray(numbers, mid, numbers.length - 1);
-        return a < b ? a : b;
+        return findMinArray(numbers,0,numbers.length - 1);
     }
 
-    static int minArray(int[] numbers, int low, int high) {
+    static int findMinArray(int[] numbers, int low, int high) {
         if (low == high) {
             return numbers[low];
         }
         int mid = low + ((high - low) >> 1);
         if (numbers[mid] < numbers[high]) { // 说明最小值在 low, mid 区间
-            return minArray(numbers, low, mid);
+            return findMinArray(numbers, low, mid);
         } else if (numbers[mid] > numbers[high]) {// 说明最小值在 mid+1, mid 区间
-            return minArray(numbers, mid + 1, high);
+            return findMinArray(numbers, mid + 1, high);
         } else {// 相等说明两个区间都有可能继续递归
-            int a = minArray(numbers, low, mid);
-            int b = minArray(numbers, mid + 1, high);
+            int a = findMinArray(numbers, low, mid);
+            int b = findMinArray(numbers, mid + 1, high);
             return a < b ? a : b;
         }
     }
